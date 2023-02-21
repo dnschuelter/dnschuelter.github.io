@@ -7,7 +7,7 @@
         let htmlString = '<ul>';
         
         for (let file of data) {
-					if (window.location.href.split(/(\\|\/)/g).pop() == file.name) continue
+					if ('index.html' === file.name) continue
           htmlString += `<li><a href="${file.path}">${file.name}</a></li>`;
         }
 
