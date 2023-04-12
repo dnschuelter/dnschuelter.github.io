@@ -8,7 +8,8 @@
     function import_gtag(measurementId) {
       if (document.getElementById(measurementId)) return;
 
-      script = document.createElement(measurementId);
+      script = document.createElement("script");
+      script.setAttribute("id", measurementId);
       script.setAttribute("type", "text/javascript");
       script.setAttribute(
         "src",
