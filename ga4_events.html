@@ -1,0 +1,111 @@
+<html>
+
+<body>
+
+  <script async src="https://www.googletagmanager.com/dataLayer.push/js?id=G-2GZHTEEL8H"></script>
+  <script>
+    function gtag() { dataLayer.push(arguments); }
+
+    function import_gtag(measurementId) {
+      if (document.getElementById(measurementId)) return;
+
+      script = document.createElement(measurementId);
+      script.setAttribute("type", "text/javascript");
+      script.setAttribute(
+        "src",
+        `https://www.googletagmanager.com/gtag/js?id=${measurementId}`
+      );
+      script.setAttribute("async", "");
+
+      document.head.insertBefore(script, document.head.firstChild);
+
+      window.dataLayer = window.dataLayer || [];
+    }
+
+    function ga_events() {
+      measurementId = document.getElementById('measurementId')
+      randomId = Math.floor(Math.random() * 10 + 1)
+      randomFilter = Math.floor(Math.random() * 10 + 1)
+
+      import_gtag(measurementId)
+
+      gtag('js', new Date());
+
+      gtag('config', measurementId);
+
+      // LINK DA BIO
+      gtag('event', 'RD Link da Bio', {
+        'rd_asset_id': randomId,
+        'rd_filter': '',
+        'rd_action': 'viewed',
+      });
+      gtag('event', 'RD Link da Bio', {
+        'rd_asset_id': randomId,
+        'rd_filter': 'post:' + randomFilter,
+        'rd_action': 'clicked',
+      });
+      gtag('event', 'RD Link da Bio', {
+        'rd_asset_id': randomId,
+        'rd_filter': ':cta:' + randomFilter,
+        'rd_action': 'clicked',
+      });
+      gtag('event', 'RD Link da Bio', {
+        'rd_asset_id': randomId,
+        'rd_filter': 'social:' + randomFilter,
+        'rd_action': 'clicked',
+      });
+
+      // LPs
+      gtag('event', 'RD Landing Pages', {
+        'rd_asset_id': randomId,
+        'rd_filter': '',
+        'rd_action': 'viewed',
+      });
+      gtag('event', 'RD Landing Pages', {
+        'rd_asset_id': randomId,
+        'rd_filter': 'experiment:' + randomFilter,
+        'rd_action': 'viewed',
+      });
+      gtag('event', 'RD Landing Pages', {
+        'rd_asset_id': randomId,
+        'rd_filter': '',
+        'rd_action': 'conversion',
+      });
+
+      // FORMs
+      gtag('event', 'RD Formulario Embutido', {
+        'rd_asset_id': randomId,
+        'rd_filter': '',
+        'rd_action': 'viewed',
+      });
+      gtag('event', 'RD Formulario Embutido', {
+        'rd_asset_id': randomId,
+        'rd_filter': '',
+        'rd_action': 'conversion',
+      });
+
+      //POPUPs e WhatsApps
+      gtag('event', 'RD Popup e WhatsApp', {
+        'rd_asset_id': randomId,
+        'rd_filter': '',
+        'rd_action': 'viewed',
+      });
+      gtag('event', 'RD Popup e WhatsApp', {
+        'rd_asset_id': randomId,
+        'rd_filter': '',
+        'rd_action': 'clicked',
+      });
+      gtag('event', 'RD Popup e WhatsApp', {
+        'rd_asset_id': randomId,
+        'rd_filter': '',
+        'rd_action': 'closed',
+      });
+    }
+  </script>
+
+  <body>
+    <input id="measurementId" type="text" placeholder="Measurement Id" />
+    <button type="button" onclick="ga_events()">Enviar eventos</button>
+  </body>
+
+</html>
