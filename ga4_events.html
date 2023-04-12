@@ -1,113 +1,132 @@
 <html>
+  <header>
+    <style>
+      .container {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      }
+    
+      .box {
+        width: 300px;
+        height: 300px;
+      }
+    
+      body {
+        margin: 0px;
+      }
+    </style>
+    <script>
+      function gtag() { dataLayer.push(arguments); }
 
-<body>
+      function import_gtag(measurementId) {
+        if (document.getElementById(measurementId)) return;
 
-  <script>
-    function gtag() { dataLayer.push(arguments); }
+        script = document.createElement("script");
+        script.setAttribute("id", measurementId);
+        script.setAttribute("type", "text/javascript");
+        script.setAttribute("src", `https://www.googletagmanager.com/gtag/js?id=${measurementId}`);
+        script.setAttribute("async", "");
 
-    function import_gtag(measurementId) {
-      if (document.getElementById(measurementId)) return;
+        document.head.insertBefore(script, document.head.firstChild);
 
-      script = document.createElement("script");
-      script.setAttribute("id", measurementId);
-      script.setAttribute("type", "text/javascript");
-      script.setAttribute(
-        "src",
-        `https://www.googletagmanager.com/gtag/js?id=${measurementId}`
-      );
-      script.setAttribute("async", "");
+        window.dataLayer = window.dataLayer || [];
 
-      document.head.insertBefore(script, document.head.firstChild);
+        gtag('js', new Date());
 
-      window.dataLayer = window.dataLayer || [];
-    }
+        gtag('config', measurementId);
+      }
 
-    function ga_events() {
-      measurementId = document.getElementById('measurementId').value
-      randomId = Math.floor(Math.random() * 10 + 1)
-      randomFilter = Math.floor(Math.random() * 10 + 1)
+      function ga_events() {
+        measurementId = document.getElementById('measurementId').value
+        randomId = Math.floor(Math.random() * 10 + 1)
+        randomFilter = Math.floor(Math.random() * 10 + 1)
 
-      import_gtag(measurementId)
+        import_gtag(measurementId)
 
-      gtag('js', new Date());
+        // LINK DA BIO
+        gtag('event', 'RD Link da Bio', {
+          'rd_asset_id': randomId,
+          'rd_filter': '',
+          'rd_action': 'viewed',
+        });
+        gtag('event', 'RD Link da Bio', {
+          'rd_asset_id': randomId,
+          'rd_filter': 'post:' + randomFilter,
+          'rd_action': 'clicked',
+        });
+        gtag('event', 'RD Link da Bio', {
+          'rd_asset_id': randomId,
+          'rd_filter': 'cta:' + randomFilter,
+          'rd_action': 'clicked',
+        });
+        gtag('event', 'RD Link da Bio', {
+          'rd_asset_id': randomId,
+          'rd_filter': 'social:' + randomFilter,
+          'rd_action': 'clicked',
+        });
 
-      gtag('config', measurementId);
+        // LPs
+        gtag('event', 'RD Landing Pages', {
+          'rd_asset_id': randomId,
+          'rd_filter': '',
+          'rd_action': 'viewed',
+        });
+        gtag('event', 'RD Landing Pages', {
+          'rd_asset_id': randomId,
+          'rd_filter': 'experiment:' + randomFilter,
+          'rd_action': 'viewed',
+        });
+        gtag('event', 'RD Landing Pages', {
+          'rd_asset_id': randomId,
+          'rd_filter': '',
+          'rd_action': 'conversion',
+        });
 
-      // LINK DA BIO
-      gtag('event', 'RD Link da Bio', {
-        'rd_asset_id': randomId,
-        'rd_filter': '',
-        'rd_action': 'viewed',
-      });
-      gtag('event', 'RD Link da Bio', {
-        'rd_asset_id': randomId,
-        'rd_filter': 'post:' + randomFilter,
-        'rd_action': 'clicked',
-      });
-      gtag('event', 'RD Link da Bio', {
-        'rd_asset_id': randomId,
-        'rd_filter': 'cta:' + randomFilter,
-        'rd_action': 'clicked',
-      });
-      gtag('event', 'RD Link da Bio', {
-        'rd_asset_id': randomId,
-        'rd_filter': 'social:' + randomFilter,
-        'rd_action': 'clicked',
-      });
+        // FORMs
+        gtag('event', 'RD Formulario Embutido', {
+          'rd_asset_id': randomId,
+          'rd_filter': '',
+          'rd_action': 'viewed',
+        });
+        gtag('event', 'RD Formulario Embutido', {
+          'rd_asset_id': randomId,
+          'rd_filter': '',
+          'rd_action': 'conversion',
+        });
 
-      // LPs
-      gtag('event', 'RD Landing Pages', {
-        'rd_asset_id': randomId,
-        'rd_filter': '',
-        'rd_action': 'viewed',
-      });
-      gtag('event', 'RD Landing Pages', {
-        'rd_asset_id': randomId,
-        'rd_filter': 'experiment:' + randomFilter,
-        'rd_action': 'viewed',
-      });
-      gtag('event', 'RD Landing Pages', {
-        'rd_asset_id': randomId,
-        'rd_filter': '',
-        'rd_action': 'conversion',
-      });
+        //POPUPs e WhatsApps
+        gtag('event', 'RD Popup e WhatsApp', {
+          'rd_asset_id': randomId,
+          'rd_filter': '',
+          'rd_action': 'viewed',
+        });
+        gtag('event', 'RD Popup e WhatsApp', {
+          'rd_asset_id': randomId,
+          'rd_filter': '',
+          'rd_action': 'clicked',
+        });
+        gtag('event', 'RD Popup e WhatsApp', {
+          'rd_asset_id': randomId,
+          'rd_filter': '',
+          'rd_action': 'closed',
+        });
 
-      // FORMs
-      gtag('event', 'RD Formulario Embutido', {
-        'rd_asset_id': randomId,
-        'rd_filter': '',
-        'rd_action': 'viewed',
-      });
-      gtag('event', 'RD Formulario Embutido', {
-        'rd_asset_id': randomId,
-        'rd_filter': '',
-        'rd_action': 'conversion',
-      });
-
-      //POPUPs e WhatsApps
-      gtag('event', 'RD Popup e WhatsApp', {
-        'rd_asset_id': randomId,
-        'rd_filter': '',
-        'rd_action': 'viewed',
-      });
-      gtag('event', 'RD Popup e WhatsApp', {
-        'rd_asset_id': randomId,
-        'rd_filter': '',
-        'rd_action': 'clicked',
-      });
-      gtag('event', 'RD Popup e WhatsApp', {
-        'rd_asset_id': randomId,
-        'rd_filter': '',
-        'rd_action': 'closed',
-      });
-
-      alert("Eventos Disparados")
-    }
-  </script>
-
+        alert("Eventos Disparados")
+      }
+    </script>
+  </header>
   <body>
-    <input id="measurementId" type="text" placeholder="Measurement Id" />
-    <button type="button" onclick="ga_events()">Enviar eventos</button>
+    <div class="container">
+      <div class="box">
+        <h1>Eventos do GA4</h1>
+        <input id="measurementId" type="text" placeholder="Measurement Id" />
+        <button type="button" onclick="ga_events()">Enviar</button>
+      </div>
+      </div>
   </body>
 
 </html>
