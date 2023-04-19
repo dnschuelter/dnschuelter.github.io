@@ -6,6 +6,7 @@
         let files = await response.json();
         for (let file of files) {
           if ('index.html' === file.name) continue
+          if ('favicon.ico' === file.name) continue
           if (file.size == 0) {
             let local_path = path + file.name + '/'
             await getAllFiles(file.url, local_path, allFiles)
